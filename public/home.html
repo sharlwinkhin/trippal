@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to TripPal</title>
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="./style/style.css">
+
+    <style>
+     
+    </style>
+
+  </head>
+  <body>
+
+    <!-- navbar: https://getbootstrap.com/docs/5.3/components/navbar/ -->
+    <nav class="navbar navbar-expand-md">
+        <div class="container-fluid">
+            <!-- logo -->
+            <a class="navbar-brand w-25" href="#">
+                <img src="./imgs/logo.png" id="logo" alt="">
+            </a>
+            <!-- Toggler button for smaller screens 
+                activated by data-bs-toggle, linked
+                by data-bs-target 
+            -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Collapsible navbar content -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active nav-color" aria-current="page" href="#">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-color" href="#">Itinerary Builder</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  nav-color" href="attraction.html">Attractions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  nav-color" href="weather.html">Weather</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  nav-color" href="currency.html">Currency</a>
+                    </li>
+                    <li class="nav-item">
+                       <div class="dropdown">
+                            <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="./imgs/profile.svg" alt="" id="profile">
+                            </a> 
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="signout.html">Sign Out</a></li>
+                                <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+     <!-- Background Carousel -->
+    <div id="carouselExample" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <!-- data-bs-ride enables autoplay -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+            <img src="./imgs/travelbg1.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+            <img src="./imgs/travelbg2.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+            <img src="./imgs/travelbg3.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+            <img src="./imgs/travelbg4.jpg" class="d-block w-100" alt="...">
+            </div>
+        </div>
+    </div>
+
+    <!-- trip form -->
+    <div class="container-fluid align-content-center" id="main">
+        <div class="row">
+            <div class="col text-center">
+                <h1 class="changing-text">Plan a new trip!</h1>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-4">
+            <div class="col-6"> 
+                <div class="input-group">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Trip Name</span>
+                    <input type="text" id="trip" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-4">
+            <div class="col-6">
+                <div class="input-group">
+                    <span class="input-group-text" id="inputGroup-sizing-default">City</span>
+                    <input type="text" id="city" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-4">
+            <div class="col-6">
+                <div class="input-group">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Dates</span>
+                    <input type="text" id="dates" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-4">
+            <div class="col-6">
+                <button type="button" id="plan" class="btn btn-primary w-100">Start Planning!</button>
+            </div>
+        </div>
+    </div>
+
+  
+
+ 
+
+
+
+     <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+</html>

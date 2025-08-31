@@ -1,0 +1,74 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-image: url('../imgs/landing.png'); /* Specify the path to your image */
+    background-size: cover; /* Scales the image to cover the entire body, maintaining aspect ratio */
+    background-position: center center; /* Centers the image horizontally and vertically */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-attachment: fixed; /* Ensures the background image stays fixed even when scrolling */
+}
+#logo {
+    width: 25%;
+    height: auto;
+}
+#main {
+    height: 100vh;
+    color: white;
+}
+.nav-color {
+    color: white !important;
+    /* font-size: 1.5em; */
+}
+.nav-item a:hover {
+        text-decoration: underline;
+        /* box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); */
+}
+.carousel {
+    /* without position: fixed, the other elements will appear only after carousel
+        position:fixed take the carousel out of the document flow
+    */
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* make carousel occupy 100% of viewpport width and height */
+    width: 100vw; 
+    height: 100vh;
+    z-index: -1;
+}
+
+/* .carousel-item {
+    height: 100vh;
+} */
+
+.carousel-item img {
+    /* ensure that the image occupy 100% of height */
+    /* object-fit: cover; */
+    width: 100vw; /* conflict */
+    height: 100vh;
+}
+#profile {
+    width: 30px;
+    height: 30px;
+}
+
+.changing-text {
+    font-size: 1.5em;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 25ch;
+    animation: typing 2s steps(25) infinite alternate;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* 1. Typing Animation */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 25ch }
+}
+/* 2. Blinking Cursor Animation */
+@keyframes blink {
+  0%, 100% { border-color: transparent }
+  50% { border-color: black }
+}
+
+

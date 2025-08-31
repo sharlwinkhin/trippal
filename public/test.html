@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typing Animation</title>
+  <style>
+    .typing {
+      font-family: monospace;
+      font-size: 24px;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid black; /* Cursor effect */
+      width: 0; /* Start with no width */
+      animation: typing 4s steps(30, end) forwards, blink 0.7s step-end infinite;
+    }
+
+    /* Typing effect */
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 20ch } /* Adjust based on text length */
+    }
+
+    /* Blinking cursor */
+    @keyframes blink {
+      from, to { border-color: transparent }
+      50% { border-color: black }
+    }
+
+    .try {
+        width: 50px;
+        height: 50px;
+        background-color: black;
+        display: inline-block;
+        margin-left: 20px;
+    }
+    .move {
+        position: relative;
+        left: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="typing">Hello, I am typing this text!</div>
+
+  <div class="try move">hello1</div>
+  <div class="try">hello2</div>
+</body>
+</html>
