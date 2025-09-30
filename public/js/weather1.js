@@ -11,7 +11,7 @@ async function getWeather() {
             }
         })
         console.log(response.data)
-        data = computedata(response.data);
+        data = computedata(response.data.result);
         document.getElementById("demo").innerText = data;
     } catch(error) {
             console.log(error.message)
@@ -21,23 +21,11 @@ async function getWeather() {
 }
 
 function computedata(obj) {
-    // note: some data are float/int type, need to use repr() or str() to convert to string type
-    // weather is a property of PHP object, which is an array
     var desc = obj.weather[0].description;
     var temp = obj.main.temp;
     temp = convert(temp); // convert to celsius
     var humid = obj.main.humidity;
     var wind = obj.wind.speed;
-
-    /* weather object
-    # weather = obj['weather'][0]
-
-    # output some object attributes
-    # print("Weather: " + weather['main'] + " " + weather['description'])
-
-    # create data according to our application requirement
-    # data = "Weather: " + weather['main'] + " " + weather['description']
-    */
 
     var data = "The weather is " +
             desc + ". The temperature is " +

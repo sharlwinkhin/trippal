@@ -4,7 +4,7 @@ async function getWeather() {
     var city = document.getElementById("city").value
     console.log(city)
     var data = "Feeling Good!"
-    var myapikey = "Your-openweathermap-api-key"
+    var apikey = "Your-openweathermap-api-key"
     var url = "https://api.openweathermap.org/data/2.5/weather"
     
     // get weather json data
@@ -13,7 +13,7 @@ async function getWeather() {
         let response = await axios.get(url, {
             params: {
                 q : city,
-                APPID : myapikey
+                APPID : apikey
             }
         })
         console.log(response.data)
@@ -28,23 +28,11 @@ async function getWeather() {
 
 
 function computedata(obj) {
-    // note: some data are float/int type, need to use repr() or str() to convert to string type
-    // weather is a property of PHP object, which is an array
     var desc = obj.weather[0].description;
     var temp = obj.main.temp;
     temp = convert(temp); // convert to celsius
     var humid = obj.main.humidity;
     var wind = obj.wind.speed;
-
-    /* weather object
-    # weather = obj['weather'][0]
-
-    # output some object attributes
-    # print("Weather: " + weather['main'] + " " + weather['description'])
-
-    # create data according to our application requirement
-    # data = "Weather: " + weather['main'] + " " + weather['description']
-    */
 
     var data = "The weather is " +
             desc + ". The temperature is " +

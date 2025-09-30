@@ -35,9 +35,9 @@ async function saveTrip() {
         // const userUID = user.uid
         console.log(userUID)
         // Get form fields and error message element
-        const tripName = document.getElementById("tripName").value.trim()
-        const location = document.getElementById("location").value.trim()
-        const dateRange = document.getElementById("date-range").value.trim()
+        const tripName = document.getElementById("trip").value.trim()
+        const location = document.getElementById("city").value.trim()
+        const dateRange = document.getElementById("dates").value.trim()
         const errorMessage = document.getElementById("errorMessage")
         const [startDate, endDate] = dateRange.split(" to ")
         const start = new Date(startDate);
@@ -113,9 +113,9 @@ async function loadTrip() {
         let location = tripRef.location
         let dates = tripRef.dates
 
-        document.getElementById("tripName").value = name
-        document.getElementById("location").value = location
-        document.getElementById("date-range").value = dates
+        document.getElementById("trip").value = name
+        document.getElementById("city").value = location
+        document.getElementById("dates").value = dates
     }
    
 }
