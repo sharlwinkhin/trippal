@@ -30,6 +30,7 @@ async function populateDropdown() {
 
       currencyFrom.addEventListener('change', doConversion);
       currencyTo.addEventListener('change', doConversion);
+      amount.addEventListener('change', doConversion);
 
    } catch (error) {
       console.error(error);
@@ -59,7 +60,7 @@ async function doConversion() {
       console.log(response.data);
 
       let converted = response.data.rates[to] * Number(amount.value);
-      result.innerText = `${amount.value} ${from} = ${converted} ${to}`;
+      result.innerText = `${amount.value} ${from} = ${converted.toFixed(2)} ${to}`;
 
    } catch (error) {
       console.error(error);
