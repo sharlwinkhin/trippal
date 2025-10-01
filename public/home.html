@@ -14,6 +14,9 @@
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
     <link rel="stylesheet" href="./style/style.css">
 
     <script>
@@ -23,6 +26,8 @@
         //     window.location.href = "login.html"; // Redirect to login if not authenticated
         // }
     </script>
+
+    <!-- <script type="module" src="./js/home.js"></script> -->
 
   </head>
   <body>
@@ -65,7 +70,7 @@
                                 <img src="./imgs/profile.svg" alt="" id="profile">
                             </a> 
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="index.html">Sign Out</a></li>
+                                <li><a class="dropdown-item" href="signout.html">Sign Out</a></li>
                                 <li><a class="dropdown-item" href="profile.html">Profile</a></li>
                             </ul>
                         </div>
@@ -106,7 +111,7 @@
             <div class="col-6"> 
                 <div class="input-group">
                     <span class="input-group-text" id="inputGroup-sizing-default">Trip Name</span>
-                    <input type="text" id="trip" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    <input type="text" id="tripName" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                 </div>
             </div>
         </div>
@@ -114,7 +119,7 @@
             <div class="col-6">
                 <div class="input-group">
                     <span class="input-group-text" id="inputGroup-sizing-default">City</span>
-                    <input type="text" id="city" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    <input type="text" id="location" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                 </div>
             </div>
         </div>
@@ -122,13 +127,16 @@
             <div class="col-6">
                 <div class="input-group">
                     <span class="input-group-text" id="inputGroup-sizing-default">Dates</span>
-                    <input type="text" id="dates" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    <input type="text" id="date-range" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                 </div>
             </div>
         </div>
+        <div class="row justify-content-center form-group">
+            <p class="col-6 error-message" id="errorMessage">Please fill in all fields.</p>
+        </div>
         <div class="row justify-content-center mt-4">
             <div class="col-6">
-                <button type="button" id="plan" class="btn btn-primary w-100">Start Planning!</button>
+                <button type="button" id="plan" class="btn btn-primary mt-2 w-100">Start Planning!</button>
             </div>
         </div>
     </div>
