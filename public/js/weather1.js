@@ -1,3 +1,20 @@
+import {getFirebaseAuth, getFirebaseStore, getFirebaseStorage} from "./config.js"
+import { getUserProfileImage } from "./utility.js"
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.9.0/firebase-auth.js"
+
+const auth = getFirebaseAuth()
+let userUID = localStorage.getItem("userUID")
+// get Firestore & Storage APIs
+const storage = getFirebaseStorage()
+const db = getFirebaseStore()
+
+onAuthStateChanged(auth, async (user) => {
+    if (user) {
+        userUID = user.uid
+    }
+    await getUserProfileImage(userUID, db, storage)
+})
+
 async function getWeather() {
     const url = "Your-CloudFunction-API"
     var city = document.getElementById("city").value

@@ -2,8 +2,8 @@ import { collection, doc, addDoc, setDoc, getDoc } from "https://www.gstatic.com
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.9.0/firebase-auth.js"
 import { ref, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.9.0/firebase-storage.js"
 
-
 import {getFirebaseAuth, getFirebaseStore, getFirebaseStorage} from "./config.js"
+import { getUserProfileImage } from "./utility.js"
 
 const auth = getFirebaseAuth()
 let userUID = localStorage.getItem("userUID")
@@ -16,7 +16,7 @@ onAuthStateChanged(auth, async (user) => {
         userUID = user.uid
     }
     await loadTrip()
-    await getUserProfileImage(userUID)
+    await getUserProfileImage(userUID, db, storage)
 })
 
 // Flatpickr Date Range Picker Initialization
@@ -134,32 +134,32 @@ function generateDateRange(startDate, endDate) {
 }
 
 // --- Function to get and display user's profile image ---
-async function getUserProfileImage(userUID) {
-    try {
-        // 1. Get the user's document from Firestore to find the image filename/URL
-        const docRef = doc(db, 'profilePictures', userUID);
-        const docSnap = await getDoc(docRef);
+// async function getUserProfileImage(userUID) {
+//     try {
+//         // 1. Get the user's document from Firestore to find the image filename/URL
+//         const docRef = doc(db, 'profilePictures', userUID);
+//         const docSnap = await getDoc(docRef);
 
-        if (docSnap.exists()) {
-            // const userData = docSnap.data();
-            // let imageUrl = userData.profileImageURL; // Check if you stored the direct URL
+//         if (docSnap.exists()) {
+//             // const userData = docSnap.data();
+//             // let imageUrl = userData.profileImageURL; // Check if you stored the direct URL
             
-            // Try to fetch the image from Firebase Storage
-             const { fileName } = docSnap.data()
-            const storageRef = ref(storage, 'users/' + userUID + '/' + fileName);
-            const downloadURL = await getDownloadURL(storageRef)
+//             // Try to fetch the image from Firebase Storage
+//              const { fileName } = docSnap.data()
+//             const storageRef = ref(storage, 'users/' + userUID + '/' + fileName);
+//             const downloadURL = await getDownloadURL(storageRef)
         
-            console.log(downloadURL)
-            const imgElement = document.getElementById('profile')
-            if (imgElement) {
-                imgElement.src = downloadURL
-                imgElement.style.display = 'block'
-            }
+//             console.log(downloadURL)
+//             const imgElement = document.getElementById('profile')
+//             if (imgElement) {
+//                 imgElement.src = downloadURL
+//                 imgElement.style.display = 'block'
+//             }
            
-        }
+//         }
 
-    } catch (error) {
-        console.error(`Error getting profile image for user ${userUID}:`, error);
-        return null;
-    }
-}
+//     } catch (error) {
+//         console.error(`Error getting profile image for user ${userUID}:`, error);
+//         return null;
+//     }
+// }
